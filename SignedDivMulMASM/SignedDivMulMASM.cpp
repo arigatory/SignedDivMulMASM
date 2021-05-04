@@ -1,20 +1,17 @@
-// SignedDivMulMASM.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+
+extern "C" int IntegerMulDiv(int a, int b, int* prod, int* quo, int* rem);
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int a = 21, b = 9;
+    int prod = 0, quo = 0, rem = 0;
+    int rv;
+
+    rv = IntegerMulDiv(a, b, &prod, &quo, &rem);
+
+    printf("Input a: %4d b: %4d\n", a, b);
+    printf("Output: rv: %4d prod: %4d que: %4d rem: %4d\n", rv, prod, quo, rem);
+
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
